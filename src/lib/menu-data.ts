@@ -25,27 +25,27 @@ export const menuCategories: MenuCategory[] = [
   {
     name: "About Our Restaurant",
     description: "Our story and philosophy",
-    page: "03",
+    page: "01",
   },
   {
     name: "Appetizers",
     description: "Perfect starters for your meal",
-    page: "04-06",
+    page: "02-04",
   },
   {
     name: "Main Courses",
     description: "Our signature dishes",
-    page: "07-12",
+    page: "05-09",
   },
   {
     name: "Desserts",
     description: "Sweet endings to remember",
-    page: "13-15",
+    page: "10-12",
   },
   {
     name: "Contact & Hours",
     description: "Visit us today",
-    page: "16",
+    page: "13",
   },
 ]
 

@@ -100,7 +100,7 @@ const Book = () => {
           startPage={0}
           drawShadow={true}
           flippingTime={1000}
-          usePortrait={true}
+          usePortrait={false}
           startZIndex={100}
           autoSize={false}
           clickEventForward={true}
@@ -152,7 +152,7 @@ const Book = () => {
                 </p>
               </div>
 
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-2">
                 {menuCategories.map((category, index) => (
                   <motion.div
                     key={category.name}
@@ -222,7 +222,7 @@ const Book = () => {
                       )}
                     </div>
                     <span className="text-xs text-white/70 font-mono bg-black/30 px-2 py-1 rounded">
-                      03 {/* Hard-code số trang */}
+                      Page {index + 1} / {menuItems.length}
                     </span>
                   </motion.div>
 
