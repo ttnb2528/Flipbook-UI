@@ -23,7 +23,7 @@ const MenuPage = ({
   // Cover Page Layout
   if (isCover) {
     return (
-      <div className="page relative h-full overflow-hidden bg-amber-900">
+      <div className="page relative h-full w-full overflow-hidden bg-amber-900">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=400')] bg-cover bg-center opacity-20" />
         <div className="relative h-full flex flex-col items-center justify-center p-8 text-amber-50 z-10">
           <motion.div
@@ -47,7 +47,7 @@ const MenuPage = ({
   // Back Cover Layout
   if (isBackCover) {
     return (
-      <div className="page relative h-full overflow-hidden bg-amber-900">
+      <div className="page relative h-full w-full overflow-hidden bg-amber-900">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=400')] bg-cover bg-center opacity-20" />
         <div className="relative h-full flex flex-col items-center justify-center p-8 text-amber-50 z-10">
           <div className="text-center">
@@ -68,7 +68,7 @@ const MenuPage = ({
   // Table of Contents Layout
   if (isTableOfContents) {
     return (
-      <div className="page relative h-full bg-gradient-to-br from-white to-amber-50 p-8">
+      <div className="page relative h-full w-full bg-gradient-to-br from-white to-amber-50 p-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
