@@ -28,6 +28,7 @@ const Book = () => {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const book = useRef<FlipBookRef | null>(null);
+  const flipSound = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -37,27 +38,35 @@ const Book = () => {
   }, []);
 
   useEffect(() => {
-    setTotalPages(menuItems.length + 3); // Cập nhật tổng số trang
+    setTotalPages(menuItems.length + 3); // Update total pages
     console.log("Total pages should be:", menuItems.length + 3);
   }, []);
 
   useEffect(() => {
     if (book.current) {
-      console.log("HTMLFlipBook đã được mount thành công");
+      console.log("HTMLFlipBook mounted successfully");
     } else {
-      console.log("HTMLFlipBook chưa được mount");
+      console.log("HTMLFlipBook not yet mounted");
     }
+  }, []);
+
+  useEffect(() => {
+    // Initialize the audio object when the component mounts
+    flipSound.current = new Audio("src/assets/pageturn.mp3");
   }, []);
 
   const handlePageFlip = (e: { data: number }) => {
     setPage(e.data);
+    if (flipSound.current) {
+      flipSound.current.play();
+    }
   };
 
   const nextPage = () => {
     if (book.current && book.current.pageFlip) {
       book.current.pageFlip().flipNext();
     } else {
-      console.error("book.current không tồn tại hoặc pageFlip không khả dụng");
+      console.error("book.current does not exist or pageFlip is unavailable");
     }
   };
 
@@ -65,7 +74,7 @@ const Book = () => {
     if (book.current && book.current.pageFlip) {
       book.current.pageFlip().flipPrev();
     } else {
-      console.error("book.current không tồn tại hoặc pageFlip không khả dụng");
+      console.error("book.current does not exist or pageFlip is unavailable");
     }
   };
 
@@ -73,7 +82,7 @@ const Book = () => {
     if (book.current && book.current.pageFlip) {
       book.current.pageFlip().flip(0);
     } else {
-      console.error("book.current không tồn tại hoặc pageFlip không khả dụng");
+      console.error("book.current does not exist or pageFlip is unavailable");
     }
   };
 
@@ -190,13 +199,12 @@ const Book = () => {
           {/* Content */}
           {menuItems.map((item, index) => (
             <div className="page relative h-full bg-white" key={index}>
-              {/* Thay menuItems[0] bằng item và cập nhật pageNumber */}
               <div className="page relative h-full bg-white">
                 {/* Background Image with Gradient Overlay */}
                 <div className="absolute inset-0">
                   <div
                     className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${item.image})` }} // Hard-code menuItem
+                    style={{ backgroundImage: `url(${item.image})` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
                 </div>
