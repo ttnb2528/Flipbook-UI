@@ -1,11 +1,13 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
-import CoverPage from "./CoverPage";
+// import CoverPage from "./CoverPage";
 import { menuItems } from "../lib/menu-data";
 import MenuPage from "./MenuPage";
 import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
-import TableOfContentsPage from "./TableOfContentsPage";
+// import TableOfContentsPage from "./TableOfContentsPage";
 
 // Define a type for the ref with the pageFlip method
 type FlipBookRef = {
@@ -94,18 +96,18 @@ const Book = () => {
           style={{ width: `${width}px`, height: `${height}px` }} // Adding style prop here
         >
           {/* Front Cover */}
-          <CoverPage isCover={true} />
+          <MenuPage isCover={true} />
 
           {/* Table of Contents */}
-          <TableOfContentsPage />
+          <MenuPage isTableOfContents={true} />
 
-          {/* Menu Pages */}
+          {/* Menu Pages - Each item on a separate page */}
           {menuItems.map((item, index) => (
-            <MenuPage key={item.id} item={item} pageNumber={index + 1} />
+            <MenuPage key={item.id} menuItem={item} pageNumber={index + 1} />
           ))}
 
           {/* Back Cover */}
-          <CoverPage isBackCover={true} />
+          <MenuPage isBackCover={true} />
         </HTMLFlipBook>
       </div>
 
