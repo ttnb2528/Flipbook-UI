@@ -68,8 +68,7 @@ const Book = () => {
         <HTMLFlipBook
           width={width}
           height={height}
-          //   size="stretch"
-          size="fixed"
+          size="stretch"
           minWidth={300}
           maxWidth={400}
           minHeight={450}
@@ -92,6 +91,7 @@ const Book = () => {
           swipeDistance={50}
           showPageCorners={true}
           disableFlipByClick={false}
+          style={{ width: `${width}px`, height: `${height}px` }} // Adding style prop here
         >
           {/* Front Cover */}
           <CoverPage isCover={true} />
