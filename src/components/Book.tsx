@@ -108,7 +108,7 @@ const Book = () => {
           ref={book}
           startPage={0}
           drawShadow={true}
-          flippingTime={1000}
+          flippingTime={100}
           usePortrait={false}
           startZIndex={100}
           autoSize={false}
