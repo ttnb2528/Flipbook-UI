@@ -89,20 +89,20 @@ const Book = () => {
     }
   };
 
-  const width = isMobile ? 300 : 600;
-  const height = isMobile ? 450 : 600;
+  const width = isMobile ? 190 : 600;
+  const height = isMobile ? 300 : 600;
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative mb-6">
+      <div className="relative mb-4 md:mb-6">
         <HTMLFlipBook
           key={isMobile ? "mobile" : "desktop"}
           width={width}
           height={height}
           size="fixed"
-          minWidth={300}
+          minWidth={190}
           maxWidth={600}
-          minHeight={450}
+          minHeight={300}
           maxHeight={600}
           maxShadowOpacity={0.8}
           showCover={true}
@@ -112,7 +112,7 @@ const Book = () => {
           ref={book}
           startPage={0}
           drawShadow={true}
-          flippingTime={100}
+          flippingTime={isMobile ? 700 : 100}
           usePortrait={false}
           startZIndex={100}
           autoSize={false}
@@ -136,13 +136,13 @@ const Book = () => {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <Star className="h-16 w-16 mb-6" />
-                <h1 className="text-4xl font-serif text-center mb-4">
+                <Star className="w-8 h-8 mb-4 md:h-16 md:w-16 md:mb-6" />
+                <h1 className="text-sm md:text-4xl font-serif text-center mb-4">
                   Gourmet Delights
                 </h1>
-                <div className="w-24 h-1 bg-amber-400 mb-6" />
-                <p className="text-xl text-center font-light">MENU</p>
-                <p className="mt-12 text-sm text-amber-200 italic">Est. 2023</p>
+                <div className="w-24 h-1 bg-amber-400 mb-4 md:mb-6" />
+                <p className="text-lg md:text-xl text-center font-light">MENU</p>
+                <p className="mt-8 md:mt-12 text-xs md:text-sm text-amber-200 italic">Est. 2023</p>
               </motion.div>
             </div>
           </div>
@@ -420,7 +420,7 @@ const Book = () => {
         </Button>
       </div>
 
-      <p className="text-amber-700 text-sm mt-4 text-center opacity-75">
+      <p className="text-amber-700 text-xs md:text-sm mt-4 text-center opacity-75">
         Click on page corners or use navigation buttons to flip pages •{" "}
         {menuItems.length} delicious items to explore
       </p>
