@@ -31,9 +31,12 @@ const Book = () => {
   const flipSound = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
+    const checkMobile = () => {
+      const isNowMobile = window.innerWidth < 768;
+      setIsMobile(isNowMobile);
+    };
     window.addEventListener("resize", checkMobile);
+    checkMobile();
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
@@ -93,6 +96,7 @@ const Book = () => {
     <div className="flex flex-col items-center">
       <div className="relative mb-6">
         <HTMLFlipBook
+          key={isMobile ? "mobile" : "desktop"}
           width={width}
           height={height}
           size="fixed"
