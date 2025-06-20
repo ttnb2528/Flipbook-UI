@@ -128,22 +128,71 @@ const Book = () => {
           }}
         >
           {/* Cover */}
-          <div className="page relative h-full w-full overflow-hidden bg-amber-900">
-            <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=400')] bg-cover bg-center opacity-20" />
-            <div className="relative h-full flex flex-col items-center justify-center p-8 text-amber-50 z-10">
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Star className="w-8 h-8 mb-4 md:h-16 md:w-16 md:mb-6" />
-                <h1 className="text-sm md:text-4xl font-serif text-center mb-4">
-                  Gourmet Delights
-                </h1>
-                <div className="w-24 h-1 bg-amber-400 mb-4 md:mb-6" />
-                <p className="text-lg md:text-xl text-center font-light">MENU</p>
-                <p className="mt-8 md:mt-12 text-xs md:text-sm text-amber-200 italic">Est. 2023</p>
-              </motion.div>
+          <div className="page relative h-full w-full overflow-hidden bg-[#2c2e35]">
+            <div className="relative h-full flex flex-col items-center justify-between p-8 text-amber-200 z-10">
+              {/* Logo at top right */}
+              <div className="absolute top-6 right-6 md:top-8 md:right-8">
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-right"
+                >
+                  <img
+                    src="https://res.cloudinary.com/thientan/image/upload/v1750405075/logo_hzwnzg.png"
+                    alt="logo"
+                  />
+                  <div className="text-xs md:text-sm text-[#dcc5a4] tracking-wider">
+                    Cocktail Bar
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Main content centered */}
+              <div className="flex-1 flex items-center justify-center">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="text-center"
+                >
+                  <motion.div className="relative">
+                    <motion.div>
+                      {/* ME */}
+                      <motion.h1
+                        className="text-6xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_bottom,_#dcc5a4_20%,_#2c2e35_100%)] mb-2 md:mb-12 tracking-wider"
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                      >
+                        ME
+                      </motion.h1>
+
+                      {/* NU */}
+                      <motion.h1
+                        className="text-6xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-[linear-gradient(to_top,_#dcc5a4_20%,_#2c2e35_100%)] tracking-wider"
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                      >
+                        NU
+                      </motion.h1>
+                    </motion.div>
+                    {/* Cocktail */}
+                    <motion.p
+                      className="absolute top-32 text-3xl md:text-4xl lg:text-7xl italic text-[#dcc5a4] font-greate-vibes"
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                    >
+                      Cocktail
+                    </motion.p>
+                  </motion.div>
+                </motion.div>
+              </div>
+
+              {/* Bottom spacing */}
+              <div className="h-16"></div>
             </div>
           </div>
 
